@@ -107,7 +107,9 @@ afterEvaluate {
     }
   }
 
-  signing {
-    sign(publishing.publications["release"])
+  if (System.getenv("JITPACK") == null) {
+    signing {
+      sign(publishing.publications["release"])
+    }
   }
 }
